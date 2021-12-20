@@ -30,7 +30,7 @@
     "strictNullChecks": false,
     "target": "ES2019",
     "paths": {
-      "~/*": ["./app/*"]
+      "~/*": ["./web/*"]
     }
 
     // Remix takes care of building everything in `remix build`.
