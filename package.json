@@ -1,7 +1,13 @@
 {
   "private": true,
   "name": "remix-nest",
-  "description": "",
+  "description": "PoC for a Remix-app served by a Nest.js backend",
+  "keywords": [
+    "remix",
+    "nest",
+    "nestjs",
+    "prisma"
+  ],
   "license": "MIT",
   "scripts": {
     "postinstall": "remix setup node",
@@ -10,7 +16,7 @@
     "build:nest": "nest build",
     "build": "remix build && nest build",
     "dev:remix": "remix watch",
-    "start:dev": "nest start --watch",
+    "dev:nest": "nest start --watch",
     "lint": "echo TODO linting...",
     "test": "echo TODO testing...",
     "e2e": "echo TODO e2e"

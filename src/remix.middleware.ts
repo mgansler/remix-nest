@@ -3,14 +3,13 @@ import { createRequestHandler } from '@remix-run/express'
 import { NextFunction, Request, Response } from 'express'
 import path from 'path'
 
-const MODE = process.env.NODE_ENV
 const BUILD_DIR = path.join(process.cwd(), 'server/build')
 
 @Injectable()
 export class RemixMiddleware implements NestMiddleware {
   use(req: Request, res: Response, next: NextFunction) {
     req.url = req.originalUrl
-    if (MODE !== 'production') {
+    if (process.env.NODE_ENV !== 'production') {
       purgeRequireCache()
     }
     return createRequestHandler({ build: require(BUILD_DIR) })(req, res, next)

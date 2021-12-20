@@ -1,59 +1,37 @@
-# Welcome to Remix!
+# Remix.run & Nest.js with Prisma.io Proof of Concept
 
-- [Remix Docs](https://remix.run/docs)
+- [Remix](https://remix.run)
+- [Nest](https://nestjs.com)
+- [Prisma](https://www.prisma.io)
 
-## Development
+This repo is nothing more but a proof of concept of serving a Remix app from a Nest.js backend (both build on top of
+express, after all)
 
-You'll need to run two terminals (or bring in a process manager like concurrently/pm2-dev if you like):
+To see it in action install the dependencies and run `dev:remix` and `dev:run`.
 
-Start the Remix development asset server
+## Motivation
 
-```sh
-npm run dev
-```
+While Remix is great for CRUD applications you would need a separate service for "backend" stuff, for example scheduled
+tasks.
 
-In a new tab start your express app:
+## How does it work
 
-```sh
-npm run start:dev
-```
+There is a Nest.js [Middleware](https://docs.nestjs.com/middleware) (see `src/remix.middelware.ts`), that is configured
+for all routes but `api/*` (see `src/app.module.ts`). The code from the middleware is pretty much copied from the
+Remix `Express Server` template. Routing for the web application is handled by Remix.
 
-This starts your app in development mode, which will purge the server require cache when Remix rebuilds assets so you don't need a process manager restarting the express server.
+## Open TODOs
 
-## Deployment
+- Linting
+- Testing (jest)
+- E2E (Cypress)
+- Hot reloading (if possible)
+- Cleanup tsconfig.json
 
-First, build your app for production:
+## Project Structure
 
-```sh
-npm run build
-```
-
-Then run the app in production mode:
-
-```sh
-npm start
-```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying express applications you should be right at home just make sure to deploy the output of `remix build`
-
-- `server/build/`
-- `public/build/`
-
-### Using a Template
-
-When you ran `npx create-remix@latest` there were a few choices for hosting. You can run that again to create a new project, then copy over your `app/` folder to the new project that's pre-configured for your target server.
-
-```sh
-cd ..
-# create a new project, and pick a pre-configured host
-npx create-remix@latest
-cd my-new-remix-app
-# remove the new project's app (not the old one!)
-rm -rf app
-# copy your app over
-cp -R ../my-old-remix-app/app app
-```
+- `app/` - Remix app directory
+- `.cache/` - Remix cache directory
+- `public/` - Remix public directory
+- `prisma/` - Prisma
+- `src/` - Nest.js backend
