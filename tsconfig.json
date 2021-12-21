@@ -1,5 +1,12 @@
 {
-  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "remix.env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "cypress/**"
+  ],
   "compilerOptions": {
     "module": "commonjs",
     "declaration": true,
@@ -30,7 +37,9 @@
     "strictNullChecks": false,
     "target": "ES2019",
     "paths": {
-      "~/*": ["./app/*"]
+      "~/*": [
+        "./app/*"
+      ]
     }
   }
 }

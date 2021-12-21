@@ -20,9 +20,12 @@ There is a Nest.js [Middleware](https://docs.nestjs.com/middleware) (see `src/re
 for all routes but `api/*` (see `src/app.module.ts`). The code from the middleware is pretty much copied from the
 Remix `Express Server` template. Routing for the web application is handled by Remix.
 
+## End 2 End
+
+Run `yarn dev:remix` and `yarn dev:nest` to run the application. Then you can run `yarn e2e` to open up Cypress.
+
 ## Open TODOs
 
-- E2E (Cypress)
 - Hot reloading (if possible)
 - Cleanup tsconfig.json
 
