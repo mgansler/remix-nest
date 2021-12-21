@@ -11,15 +11,19 @@ export async function loader(): Promise<LoaderData> {
   return { users }
 }
 
-export default function () {
+export default function Users() {
   const { users } = useLoaderData<LoaderData>()
 
-  return <div>
-    <h2>Users</h2>
-    <ul>
-      {users.map(user => (
-        <li key={user.id}><Link to={`${user.id}`}>{user.name}</Link></li>)
-      )}
-    </ul>
-  </div>
+  return (
+    <div>
+      <h2>Users</h2>
+      <ul>
+        {users.map((user) => (
+          <li key={user.id}>
+            <Link to={`${user.id}`}>{user.name}</Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
 }

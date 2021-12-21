@@ -26,6 +26,7 @@ Run `yarn dev:remix` and `yarn dev:nest` to run the application. Then you can ru
 
 ## Open TODOs
 
+- Split jest config for node/jsdom?
 - Hot reloading (if possible)
 - Cleanup tsconfig.json
 
