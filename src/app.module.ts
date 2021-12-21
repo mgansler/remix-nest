@@ -8,9 +8,8 @@ import { RemixMiddleware } from './remix.middleware'
 @Module({
   imports: [ScheduleModule.forRoot()],
   providers: [AppService, PrismaService],
-  controllers: [AppController]
+  controllers: [AppController],
 })
-
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(RemixMiddleware).exclude('api', 'api/(.*)').forRoutes('*')

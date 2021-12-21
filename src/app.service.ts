@@ -4,8 +4,7 @@ import { PrismaService } from './prisma.service'
 
 @Injectable()
 export class AppService {
-  constructor(private prisma: PrismaService) {
-  }
+  constructor(private prisma: PrismaService) {}
 
   @Cron(CronExpression.EVERY_10_SECONDS)
   async cron() {
