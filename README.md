@@ -23,7 +23,6 @@ Remix `Express Server` template. Routing for the web application is handled by R
 ## Open TODOs
 
 - Linting
-- Testing (jest)
 - E2E (Cypress)
 - Hot reloading (if possible)
 - Cleanup tsconfig.json
