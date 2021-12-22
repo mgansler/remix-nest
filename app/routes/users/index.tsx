@@ -1,5 +1,6 @@
 import { User } from '@prisma/client'
 import { Link, useLoaderData } from '@remix-run/react'
+import DateTime from '~/shared/DateTime'
 import { db } from '~/utils/db.server'
 
 type LoaderData = {
@@ -17,6 +18,7 @@ export default function Users() {
   return (
     <div>
       <h2>Users</h2>
+      <DateTime />
       <ul>
         {users.map((user) => (
           <li key={user.id}>
