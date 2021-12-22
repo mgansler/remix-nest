@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
-import { DateLoader } from '~/routes/date'
+import { DateLoader } from '~/routes/resources/date'
 
 export default function DateTime() {
   const [date, setDate] = useState<Date>()
 
   useEffect(() => {
-    fetch('/date').then(async (resp) => {
+    fetch('/resources/date').then(async (resp) => {
       const { date } = (await resp.json()) as DateLoader
       setDate(new Date(date))
     })
