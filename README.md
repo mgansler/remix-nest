@@ -7,7 +7,7 @@
 This repo is nothing more but a proof of concept of serving a Remix app from a Nest.js backend (both build on top of
 express, after all)
 
-To see it in action install the dependencies and run `dev:remix` and `dev:run`.
+To see it in action install the dependencies and run `dev:remix` and `dev:nest`.
 
 ## Motivation
 
