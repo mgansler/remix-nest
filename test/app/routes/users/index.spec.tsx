@@ -1,4 +1,4 @@
-import Users, { loader } from './index'
+import Users, { loader } from '~/routes/users'
 
 jest.mock('~/utils/db.server', () => ({
   db: {
