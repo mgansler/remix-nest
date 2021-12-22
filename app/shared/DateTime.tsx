@@ -1,15 +1,14 @@
-import { useEffect, useState } from 'react'
-import { DateLoader } from '~/routes/resources/date'
+import { useFetcher } from '@remix-run/react'
 
 export default function DateTime() {
-  const [date, setDate] = useState<Date>()
+  const dateFetcher = useFetcher()
+  if (dateFetcher.type === 'init') {
+    dateFetcher.load('/resources/date')
+  }
 
-  useEffect(() => {
-    fetch('/resources/date').then(async (resp) => {
-      const { date } = (await resp.json()) as DateLoader
-      setDate(new Date(date))
-    })
-  }, [])
-
-  return <div>{date?.toLocaleDateString()}</div>
+  return dateFetcher.type === 'done' ? (
+    <div>{new Date(dateFetcher.data.date).toLocaleDateString()}</div>
+  ) : (
+    <div>{dateFetcher.state}</div>
+  )
 }
